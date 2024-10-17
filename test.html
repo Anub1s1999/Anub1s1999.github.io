@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a certified penetration tester with eCPPTv2 and CRTP certifications">
+    <title>[Your Name] | Penetration Tester Portfolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0d0d0d;
+            color: #e5e5e5;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ff4500;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: #f39c12;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #e5e5e5;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h3 {
+            font-size: 2rem;
+            color: #ff4500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li:before {
+            content: '';
+            color: #ff4500;
+        }
+
+        .skills, .certifications, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .language-switcher {
+            position: fixed;
+            top: 0.5vw;
+            right: 2vw;
+            z-index: 100;
+            display: flex;
+            gap: 5px;
+        }
+        .language-switcher button {
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+            border: 1px solid #f39c12;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-switcher button:hover {
+            background-color: #ff4500;
+            color: #fff;
+        }
+        .skills .skill, .certifications .cert, .projects .project {
+            background-color: #1a1a1a;
+            padding: 20px;
+            width: 48%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .skills .skill:hover, .certifications .cert:hover, .projects .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        }
+
+        /* TryHackMe badge */
+        .badge {
+            position: fixed;
+            top: 3vw;
+            right: 0%;
+            width: 15vw;
+            max-width: 300px;
+        }
+        @media (max-width: 768px) {
+            .profile-photo {
+                top: 5vw;
+                left: 5vw;
+                width: 20vw; /* Larger size for smaller screens */
+                height: 20vw;
+            }
+            .badge {
+                top: 10vw;
+                right: 0%;
+                width: 25vw; /* Make the badge slightly larger on smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .profile-photo {
+                top: 5vw;
+                left: 5vw;
+                width: 10vw; /* Even larger size on very small screens */
+                height: 10vw;
+            }
+
+            .badge {
+                top: 10vw;
+                right: 0%;
+                width: 15vw;
+            }
+        }
+        .badge iframe {
+            width: 100%;  /* Maintain original aspect ratio */
+            height: auto; /* No forced height */
+        }
+        
+        .footer-container {
+            text-align: center;
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-container p {
+            color: #f39c12;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            }
+
+        .social-icons li {
+            margin: 0 15px; /* Adjust spacing between icons */
+        }
+
+        .social-icons li a {
+            color: #e5e5e5;  /* Default icon color */
+            font-size: 2rem; /* Icon size */
+            transition: color 0.3s ease, box-shadow 0.3s ease;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
+            border-radius: 50%; /* Optional: make them circular */
+        }
+
+        .social-icons li a:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+            color: #ff4500;  /* Change icon color on hover */
+        }
+        footer p {
+            margin-top: 15px;
+            color: #e5e5e5;
+            font-size: 1rem;
+        }
+
+        footer p a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        footer p a:hover {
+            color: #ff4500;
+        }
+        .profile-photo {
+            position: fixed;
+            top: 2vw;
+            left: 2vw;
+            width: 10vw;  /* Adjust the size as needed */
+            height: 10vw; /* Make sure height is equal to width for a circle */
+            z-index: 100;  /* Keeps the profile photo on top */
+            border-radius: 50%; /* Makes the image circular */
+            overflow: hidden; /* Ensures the image fits inside the circle */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Optional: Adds a shadow for better visibility */
+            max-width: 100px;
+            max-height: 100px;
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the entire circle without distortion */
+        }
+        .signature {
+        font-family: 'Dancing Script', cursive; /* Use the cursive font */
+        font-size: 1.5rem; /* Adjust size as needed */
+        color: #f39c12; /* Signature color */
+        display: inline; /* Ensure it stays inline with the rest of the text */
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="#English"><button onclick="switchLanguage('en')">EN</button></a>
+        <a href="#russian"><button onclick="switchLanguage('ru')">RU</button></a>
+    </div>
+    <header>
+        <h1>Martin Kaldas</h1>
+        <h2>Certified Penetration Tester | eCPPTv2 | CRTP</h2>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h3>About Me</h3>
+            <p>I am a highly skilled penetration tester with certifications in eLearnSecurity Professional Penetration Tester (eCPPTv2) and Certified Red Team Professional (CRTP). With a deep understanding of information security, I specialize in identifying and exploiting vulnerabilities in complex systems to enhance security resilience.</p>
+        </section>
+
+        <section id="skills">
+            <h3>Skills</h3>
+            <div class="skills">
+                <div class="skill">
+                    <h4>Penetration Testing</h4>
+                    <p>Expertise in network, web application, and wireless penetration testing.</p>
+                </div>
+                <div class="skill">
+                    <h4>Red Teaming</h4>
+                    <p>Experience with adversarial attack simulations and post-exploitation techniques.</p>
+                </div>
+                <div class="skill">
+                    <h4>Vulnerability Assessment</h4>
+                    <p>Ability to assess and mitigate risks using advanced tools and manual techniques.</p>
+                </div>
+                <div class="skill">
+                    <h4>Programming</h4>
+                    <p>Proficient in Python, Bash scripting, PowerShell, and JavaScript.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h3>Certifications</h3>
+            <div class="certifications">
+                <div class="cert">
+                    <h4>eCPPTv2</h4>
+                    <p>eLearnSecurity Certified Professional Penetration Tester.</p>
+                </div>
+                <div class="cert">
+                    <h4>CRTP</h4>
+                    <p>Certified Red Team Professional, focusing on Active Directory attacks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h3>Projects</h3>
+            <div class="projects">
+                <div class="project">
+                    <h4>Project 1: Web Application Penetration Test</h4>
+                    <p>Conducted a full assessment of a banking web application, identifying critical vulnerabilities.</p>
+                </div>
+                <div class="project">
+                    <h4>Project 2: Active Directory Attack Simulation</h4>
+                    <p>Simulated real-world attacks on Active Directory environments to identify weak configurations.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TryHackMe Badge -->
+    <div class="badge">
+        <script src="https://tryhackme.com/badge/805416"></script>
+    </div>
+    <div class="profile-photo">
+        <a href="https://www.linkedin.com/in/[YourLinkedInUsername]" target="_blank">
+            <img src="IMG_7311.jpg" alt="Profile Photo">
+        </a>
+    </div>
+    <footer id="contact">
+        <div class="footer-container">
+            <p>Connect with me:</p>
+            <ul class="social-icons">
+                <li>
+                    <a href="https://github.com/[YourGitHubUsername]" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/[YourLinkedInUsername]" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://telegram.com/[YourTwitterUsername]" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/[YourTwitterUsername]" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>© 2024 <span class="signature">Martin Kaldas</span> | All Rights Reserved</p>
+    </footer>    
+</body>
+</html>
